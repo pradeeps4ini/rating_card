@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet"> 
+  <title>Interactive rating component</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex">
+  
+  <h1 class="sr-only">Rating Card</h1>
+
+  <main>
+    <section class="front flex">
+      <div class="content flex">
+        <button class="star-image"><img src="./images/icon-star.svg" alt=""></button>
+        <h2>How did we do?</h2>
+        <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering.</p>
+      </div>
+
+      <form action="#" class="rating flex">
+        <div class="rating-button flex">
+          <label class="radio-control" aria-label="rating 1">
+            <input type="radio" name="rating" value="1">
+          </label>
+          <label class="radio-control" aria-label="rating 2">
+            <input type="radio" name="rating" value="2">
+          </label>
+          <label class="radio-control" aria-label="rating 3">
+            <input type="radio" name="rating" value="3">
+          </label>
+          <label class="radio-control" aria-label="rating 4">
+            <input type="radio" name="rating" value="4">
+          </label>
+          <label class="radio-control" aria-label="rating 5">
+            <input type="radio" name="rating" value="5">
+          </label>
+        </div>
+        <div>
+          <button type="button" class="submit-btn">SUBMIT</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="back flex">
+      
+    </section>  
+  </main>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Pradeep Saini</a>.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

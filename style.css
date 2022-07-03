@@ -1,0 +1,178 @@
+:root {
+  --clr-primary: hsl(25, 97%, 53%);
+  --clr-neutral0: hsl(0, 0%, 100%);
+  --clr-neutral1: hsl(217, 12%, 63%);
+  --clr-neutral2: hsl(216, 12%, 54%);
+  --clr-neutral3: hsl(213, 19%, 18%);
+  --clr-neutral4: hsl(216, 12%, 8%);
+  --clr-neutral5: hsl(210, 18.5%, 21.2%);
+
+  --f-family: 'Overpass', sans-serif; 
+  --f-weight0: 400;
+  --f-weight1: 700;
+
+  --gap2: 2rem;
+  --gap1-5: 1.5rem;
+  --gap1: 1rem;
+}
+
+*, 
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* general styling */
+
+html {
+  font-family: var(--f-family);
+}
+
+body {
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--clr-neutral4);
+}
+
+
+/* utility */
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+h2 {
+  color: var(--clr-neutral0);
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: var(--f-weight1);
+  color: var(--clr-neutral2);
+  line-height: 1.4;
+}
+
+button,
+input {
+  cursor: pointer;
+}
+
+.sr-only {
+  clip-path: inset(50%);
+  block-size: 1px;
+  inline-size: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+
+/* page style */
+
+main {
+  max-width: 26rem;
+  min-height: auto;
+  padding-inline: 1.25rem;
+  padding-block: 1.5rem 2rem;
+  margin-inline: 1rem;
+  background-color: var(--clr-neutral3);
+  border-radius: 15px;
+}
+
+
+.star-image,
+input {
+  inline-size: 2.5rem;
+  aspect-ratio: 1;
+  padding: .8rem;
+  background-color: var(--clr-neutral5);
+  border: none;
+  border-radius: 50%;
+}
+
+.front {
+  flex-flow: column nowrap;
+  gap: var(--gap2);
+}
+
+.content, 
+.rating {
+  flex-flow: column nowrap;
+  gap: var(--gap1);
+}
+
+
+.content img {
+  max-inline-size: 100%;
+} 
+
+
+/* rating */
+
+.rating {
+  gap: var(--gap1-5);
+}
+
+.rating-button {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background: var(--clr-neutral5);;
+  margin: 0;
+  font: inherit;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border: 0.15rem solid var(--clr-neutral5);
+  border-radius:50%;
+}
+
+input[type="radio"]::before {
+  content: attr(value);
+  display: grid;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  font-size: .8rem;
+  color: var(--clr-neutral2);
+  border-radius: 50%;
+  background: var(--clr-neutral5);
+}
+
+input[type="radio"]:checked,
+input[type="radio"]:checked::before {
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral0);
+  font-weight: var(--f-weight1);
+}
+
+.submit-btn {
+  width: 100%;
+  padding-block: .75rem;
+  font-weight: var(--f-weight1);
+  color: var(--clr-neutral0);  
+  background-color: var(--clr-primary);
+  border: none;
+  border-radius: 2rem;
+  letter-spacing: .2rem;
+}
+
+.submit-btn:active {
+  background-color: var(--clr-neutral0);
+  color: var(--clr-primary);
+}
+
+
+/* back card */
