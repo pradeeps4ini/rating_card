@@ -16,30 +16,29 @@
   <h1 class="sr-only">Rating Card</h1>
 
   <main>
-    <section class="front flex">
-      <div class="content flex">
+    <section class="front flex f-col f-wrap">
+      <div class="content flex f-col f-wrap">
         <button class="star-image"><img src="./images/icon-star.svg" alt=""></button>
         <h2>How did we do?</h2>
         <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering.</p>
       </div>
 
-      <form action="#" class="rating flex">
+      <form action="#" class="rating flex f-col f-wrap">
         <div class="rating-button flex">
-          <label class="radio-control" aria-label="rating 1">
-            <input type="radio" name="rating" value="1">
-          </label>
-          <label class="radio-control" aria-label="rating 2">
-            <input type="radio" name="rating" value="2">
-          </label>
-          <label class="radio-control" aria-label="rating 3">
-            <input type="radio" name="rating" value="3">
-          </label>
-          <label class="radio-control" aria-label="rating 4">
-            <input type="radio" name="rating" value="4">
-          </label>
-          <label class="radio-control" aria-label="rating 5">
-            <input type="radio" name="rating" value="5">
-          </label>
+          <label for="rating5">5</label>
+          <input id="rating5" type="radio" name="rating-box" value="5">
+
+          <label for="rating4">4</label>
+          <input id="rating4" type="radio" name="rating-box" value="4">
+
+          <label for="rating3">3</label>
+          <input id="rating3" type="radio" name="rating-box" value="3">
+
+          <label for="rating2">2</label>
+          <input id="rating2" type="radio" name="rating-box" value="2">
+
+          <label for="rating1">1</label>
+          <input id="rating1" type="radio" name="rating-box" value="1">
         </div>
         <div>
           <button type="button" class="submit-btn">SUBMIT</button>
@@ -47,8 +46,16 @@
       </form>
     </section>
 
-    <section class="back flex">
-      
+    <section class="back flex f-col f-wrap scale-to-zero">
+      <div class="chosen-rating">
+        <img src="./images/illustration-thank-you.svg" alt="">
+        <p></p>
+      </div>        
+
+      <div class="thanks-msg">
+        <h2>Thank you!</h2>
+        <p>We appreciate you taking time to give a rating, if you need more support, don't hesitate to get in touch,</p>
+      </div>
     </section>  
   </main>
   

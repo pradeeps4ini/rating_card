@@ -50,13 +50,20 @@ body {
   display: flex;
 }
 
+.f-col {
+  flex-direction: column;
+}
+
+.f-wrap {
+  flex-wrap: nowrap;
+}
+
 h2 {
   color: var(--clr-neutral0);
 }
 
 p {
   font-size: 0.9rem;
-  font-weight: var(--f-weight1);
   color: var(--clr-neutral2);
   line-height: 1.4;
 }
@@ -65,6 +72,16 @@ button,
 input {
   cursor: pointer;
 }
+
+img {
+  max-inline-size: 100%;
+}
+
+.scale-to-zero {
+  position: absolute;
+  transform: scale(0);
+}
+
 
 .sr-only {
   clip-path: inset(50%);
@@ -82,8 +99,9 @@ input {
 main {
   max-width: 26rem;
   min-height: auto;
-  padding-inline: 1.25rem;
-  padding-block: 1.5rem 2rem;
+  padding-inline: clamp(1.25rem, calc(4vw + 1rem), 2.4rem);
+  padding-block-start: clamp(1.5rem, calc(4vw + 1rem), 2rem);
+  padding-block-end:  clamp(2rem, calc(5vw + 1rem), 2.5rem);
   margin-inline: 1rem;
   background-color: var(--clr-neutral3);
   border-radius: 15px;
@@ -100,21 +118,16 @@ input {
   border-radius: 50%;
 }
 
-.front {
-  flex-flow: column nowrap;
+.front,
+.back {
   gap: var(--gap2);
 }
 
+
 .content, 
 .rating {
-  flex-flow: column nowrap;
   gap: var(--gap1);
 }
-
-
-.content img {
-  max-inline-size: 100%;
-} 
 
 
 /* rating */
@@ -125,7 +138,11 @@ input {
 
 .rating-button {
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-flow: row-reverse wrap;
+}
+
+label {
+  transform: scale(0);
 }
 
 input[type="radio"] {
@@ -151,12 +168,22 @@ input[type="radio"]::before {
   background: var(--clr-neutral5);
 }
 
-input[type="radio"]:checked,
-input[type="radio"]:checked::before {
+input:checked,
+input:checked::before,
+input:hover,
+input:hover::before, 
+input:hover ~ input,
+input:hover ~ input::before {
   background-color: var(--clr-primary);
   color: var(--clr-neutral0);
   font-weight: var(--f-weight1);
 }
+
+.checked:checked,
+.checked:checked::before {
+  background-color: var(--clr-neutral2) !important; /* had to use !important because of the specificity of previous property */
+}
+
 
 .submit-btn {
   width: 100%;
@@ -176,3 +203,42 @@ input[type="radio"]:checked::before {
 
 
 /* back card */
+
+.back > * {
+  text-align: center;
+}
+
+.chosen-rating p {
+  max-width: fit-content;
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  margin-inline: auto;
+  font-weight: var(--f-weight0);
+  letter-spacing: 1px;
+  color: var(--clr-primary);
+  background: var(--clr-neutral5);
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+.thanks-msg h2 {
+  margin-bottom: .8rem;
+  font-size: clamp(1.1rem, calc(3vw + 1rem), 2.2rem);  
+}
+
+
+/* footer */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+/* media queries */
+
+@media (max-width: 600px) {
+  img {
+    transform: scale(.9);
+  }
+}
