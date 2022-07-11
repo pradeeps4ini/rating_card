@@ -8,6 +8,13 @@ const domElements = (() => {
 })();
 
 
+const getLabel = function(input) {
+  const className = input.classList[0];
+  const label = document.querySelector(`label.${className}`);
+  return label;
+};
+
+
 const getValue = function(ratingDivs) {
   let value;
   ratingDivs.forEach(div => {
@@ -17,8 +24,26 @@ const getValue = function(ratingDivs) {
 };
 
 
-const changeCheckedInputStyle= function(inputDiv) {
-  inputDiv.classList.toggle("checked");
+const removeCheckedStyle = function(ratingDivs, e) {
+  
+  ratingDivs.forEach(div => {
+    const label = getLabel(div); 
+
+    if (label.classList.contains("unchecked")) {
+      label.classList.toggle("unchecked");
+    }
+
+    if (label.classList.contains("checked") && div != e.target) {
+      label.classList.toggle("checked");
+      label.classList.toggle("unchecked");
+    };
+  });
+};
+
+
+const changeCheckedStyle = function(e) {
+  const label = getLabel(e.target); 
+  label.classList.toggle("checked");
 };
 
 
@@ -37,7 +62,11 @@ const domInterations = (() => {
   const { ratingDivs, cardFront, cardBack, submitBtn } = { ...domElements };
 
   ratingDivs.forEach(div => {
-    (div.checked) ? changeCheckedInputStyle(div) : null;
+    div.addEventListener("click", e => {
+      removeCheckedStyle(ratingDivs, e);
+      changeCheckedStyle(e);
+
+    });
   });
   
   submitBtn.addEventListener("click", e => {

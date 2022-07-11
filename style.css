@@ -69,7 +69,7 @@ p {
 }
 
 button,
-input {
+label {
   cursor: pointer;
 }
 
@@ -138,55 +138,40 @@ input {
 
 .rating-button {
   justify-content: space-between;
-  flex-flow: row-reverse wrap;
+  flex-flow: row-reverse nowrap;
 }
 
 label {
-  transform: scale(0);
-}
-
-input[type="radio"] {
-  appearance: none;
-  background: var(--clr-neutral5);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
-  font: inherit;
   inline-size: 2.5rem;
   block-size: 2.5rem;
+  font-size: .8rem;
+  color: var(--clr-neutral0);
+  background: var(--clr-neutral5);;
   border: 0.15rem solid var(--clr-neutral5);
   border-radius:50%;
 }
 
-input[type="radio"]::before {
-  content: attr(value);
-  display: grid;
-  justify-content: center;
-  inline-size: 100%;
-  block-size: 100%;
-  font-size: .8rem;
-  color: var(--clr-neutral2);
-  border-radius: 50%;
-  background: var(--clr-neutral5);
+input {
+  transform: scale(0);
+  position: absolute;
 }
 
-input:checked,
-input:checked::before,
-input:hover,
-input:hover::before, 
-input:hover ~ input,
-input:hover ~ input::before {
+label:hover,
+label:hover ~ label,
+.checked {
   background-color: var(--clr-primary);
-  color: var(--clr-neutral0);
-  font-weight: var(--f-weight1);
 }
 
-.checked:checked,
-.checked:checked::before {
-  background-color: var(--clr-neutral2) !important; /* had to use !important because of the specificity of previous property */
+.unchecked {
+  background-color: var(--clr-neutral2);
 }
-
 
 .submit-btn {
-  width: 100%;
+  inline-size: 100%;
   padding-block: .75rem;
   font-weight: var(--f-weight1);
   color: var(--clr-neutral0);  
@@ -196,7 +181,7 @@ input:hover ~ input::before {
   letter-spacing: .2rem;
 }
 
-.submit-btn:active {
+.submit-btn:hover {
   background-color: var(--clr-neutral0);
   color: var(--clr-primary);
 }
@@ -209,7 +194,7 @@ input:hover ~ input::before {
 }
 
 .chosen-rating p {
-  max-width: fit-content;
+  max-inline-size: fit-content;
   padding-inline: 1rem;
   padding-block: .5rem;
   margin-inline: auto;
@@ -218,11 +203,11 @@ input:hover ~ input::before {
   color: var(--clr-primary);
   background: var(--clr-neutral5);
   border-radius: 2rem;
-  margin-top: 1rem;
+  margin-block-start: 1rem;
 }
 
 .thanks-msg h2 {
-  margin-bottom: .8rem;
+  margin-block-end: .8rem;
   font-size: clamp(1.1rem, calc(3vw + 1rem), 2.2rem);  
 }
 
